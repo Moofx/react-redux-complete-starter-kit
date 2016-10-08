@@ -71,6 +71,7 @@ This will run the automated build process, start up a webserver, and open the ap
 |redux-mock-store|Mock Redux store for testing|
 |rimraf|Delete files |
 |style-loader| Add Style support to Webpack |
+|sass-loader| Add SASS support to Webpack |
 |url-loader| Add url loading support to Webpack |
 |webpack| Bundler with plugin system and integrated development server |
 |webpack-dev-middleware| Adds middleware support to webpack |
