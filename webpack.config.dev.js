@@ -8,7 +8,7 @@ export default {
     entry: [
         'eventsource-polyfill', // necessary for hot reloading with IE
         'webpack-hot-middleware/client?reload=true', //note that it reloads the page if hot module reloading fails.
-        path.resolve(__dirname, 'src/index')
+        path.resolve(__dirname, 'src/index.jsx')
     ],
     target: 'web',
     output: {
@@ -26,13 +26,13 @@ export default {
     module: {
         loaders: [
             {
-                test: /\.js$/,
+                test: /\.jsx$/,
                 include: path.join(__dirname, 'src'),
                 loaders: ['babel']
             },
             {
-                test: /(\.css)$/,
-                loaders: ['style', 'css']
+                test: /\.scss$/,
+                loaders: ['style', 'css', 'sass']
             },
             {
                 test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
