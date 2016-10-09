@@ -31,6 +31,10 @@ export default {
                 loaders: ['babel']
             },
             {
+                test: /\.css$/,
+                loaders: ['style', 'css']
+            },
+            {
                 test: /\.scss$/,
                 loaders: ['style', 'css', 'sass']
             },
