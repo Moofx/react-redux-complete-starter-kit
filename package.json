@@ -21,7 +21,7 @@
     "prebuild": "npm-run-all backup clean-dist test lint build:html",
     "build": "babel-node tools/build.js",
     "//": "Uncomment '//' from following line key '//postbuild' if you want to use node/express server to serve your application",
-    "//postbuild": "npm sun server:production",
+    "//postbuild": "npm run server:production",
     "server:production": "test -f ./www/index.html && babel-node tools/prodServer.js"
   },
   "dependencies": {
