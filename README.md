@@ -25,7 +25,6 @@ This will run the automated build process, start up a webserver, and open the ap
 |----------|-------|
 |babel-polyfill | Polyfill for Babel features that cannot be transpiled |
 |bootstrap| CSS Framework |
-|foundation-sites| Foundation CSS Framework for responsive sites |
 |jquery|Only used to support toastr|
 |react|React library |
 |react-dom|React library for DOM rendering |
