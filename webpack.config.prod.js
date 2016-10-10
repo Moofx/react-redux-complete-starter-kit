@@ -24,7 +24,12 @@ export default {
         new webpack.DefinePlugin(GLOBALS),
         new ExtractTextPlugin('app.css'),
         new webpack.optimize.DedupePlugin(),
-        new webpack.optimize.UglifyJsPlugin()
+        new webpack.optimize.UglifyJsPlugin({
+            comments: false,
+            compress: {
+                warnings: false
+            }
+        })
     ],
     module: {
         loaders: [
