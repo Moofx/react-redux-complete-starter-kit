@@ -1,30 +1,30 @@
 import webpack from 'webpack';
 import path from 'path';
+import ExtractTextPlugin from 'extract-text-webpack-plugin';
+
+const GLOBALS = {
+    'process.env.NODE_ENV': JSON.stringify('production')
+};
 
 export default {
     debug: true,
-    devtool: 'cheap-module-eval-source-map',
+    devtool: 'source-map',
     noInfo: false,
     resolve: {
         extensions: ["", ".js", ".jsx"]
     },
-    entry: [
-        'eventsource-polyfill', // necessary for hot reloading with IE
-        'webpack-hot-middleware/client?reload=true', //note that it reloads the page if hot module reloading fails.
-        path.resolve(__dirname, 'src/index')
-    ],
+    entry: path.resolve(__dirname, 'src/index'),
     target: 'web',
     output: {
         path: __dirname + '/www', // Note: Physical files are only output by the production build task `npm run build`.
-        publicPath: '/',
         filename: 'app.js'
     },
-    devServer: {
-        contentBase: path.resolve(__dirname, 'src')
-    },
     plugins: [
-        new webpack.HotModuleReplacementPlugin(),
-        new webpack.NoErrorsPlugin()
+        new webpack.optimize.OccurenceOrderPlugin(),
+        new webpack.DefinePlugin(GLOBALS),
+        new ExtractTextPlugin('app.css'),
+        new webpack.optimize.DedupePlugin(),
+        new webpack.optimize.UglifyJsPlugin()
     ],
     module: {
         loaders: [
@@ -35,11 +35,11 @@ export default {
             },
             {
                 test: /\.css$/,
-                loaders: ['style', 'css']
+                loader: ExtractTextPlugin.extract("css?sourceMap")
             },
             {
                 test: /\.scss$/,
-                loaders: ['style', 'css', 'sass']
+                loader: ExtractTextPlugin.extract(["css!sass?sourceMap"])
             },
             {
                 test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
