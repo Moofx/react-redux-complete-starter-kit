@@ -50,7 +50,7 @@ rules:
         - style: short
     hex-notation:
         - 1
-        - style: lowercase
+        - style: uppercase
     id-name-format:
         - 1
         - convention: '([a-z0-9]+-?)+'
@@ -74,7 +74,7 @@ rules:
     no-debug: 1
     no-duplicate-properties: 1
     no-empty-rulesets: 1
-    no-ids: 1
+    no-ids: 0
     no-important: 0
     no-invalid-hex: 1
     no-mergeable-selectors: 1
