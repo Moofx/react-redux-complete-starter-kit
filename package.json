@@ -4,22 +4,26 @@
   "description": "Boilerplate for ReactJS with Redux",
   "author": "Vivek Marakana",
   "license": "MIT",
+  "main": "webpack.config.dev.js",
+  "directories": {
+    "test": "tests"
+  },
   "scripts": {
     "prestart": "babel-node tools/startMessage.js",
     "start": "npm-run-all --parallel test:watch server:development lint:watch",
     "server:development": "babel-node tools/srcServer.js",
-    "lint": "node_modules/.bin/esw --ext .js,.jsx webpack.config.* src tools tests",
+    "lint": "esw --ext .js,.jsx webpack.config.* src tools tests",
     "lint:sass": "sass-lint -v -c .sass-lint.yml",
     "lint:watch": "npm run lint -- --watch",
     "test": "mocha --reporter spec tools/testSetup.js tests/**/*.spec.js",
     "test:watch": "npm run test -- --watch",
-    "remove-backup": "node_modules/.bin/rimraf ./www-backup",
+    "remove-backup": "rimraf ./www-backup",
     "backup": "(test -d ./www || mkdir -p www) && npm run remove-backup && cp -r ./www ./www-backup",
-    "remove-dist": "node_modules/.bin/rimraf ./www",
+    "remove-dist": "rimraf ./www",
     "clean-dist": "npm run remove-dist && mkdir www",
     "remove-all-dist": "npm-run-all --parallel remove-dist remove-backup",
     "build:html": "babel-node tools/buildHtml.js",
-    "prebuild": "npm-run-all backup clean-dist test lint lint:sass build:html",
+    "prebuild": "npm-run-all lint:sass lint test backup clean-dist build:html",
     "build": "babel-node tools/build.js",
     "//": "Uncomment '//' from following line key '//postbuild' if you want to use node/express server to serve your application",
     "//postbuild": "npm run server:production",
@@ -99,6 +103,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/vivekmarakana/react-redux-boilerplate"
-  }
+    "url": "git+https://github.com/vivekmarakana/react-redux-boilerplate.git"
+  },
+  "bugs": {
+    "url": "https://github.com/vivekmarakana/react-redux-boilerplate/issues"
+  },
+  "homepage": "https://github.com/vivekmarakana/react-redux-boilerplate#readme"
 }

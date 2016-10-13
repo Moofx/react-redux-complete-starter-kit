@@ -31,17 +31,7 @@ export default {
             }
         })
     ],
-    sasslint: {
-        configFile: '.sass-lint.yml',
-        failOnWarning: true
-    },
     module: {
-        preLoaders: [
-            {
-                test: /\.s[a|c]ss$/,
-                loader: 'sasslint'
-            }
-        ],
         loaders: [
             {
                 test: /\.js[x]?$/,
@@ -73,8 +63,5 @@ export default {
                 loader: 'url?limit=10000&mimetype=image/svg+xml'
             }
         ]
-    },
-    stats: {
-        children: false
     }
 };
