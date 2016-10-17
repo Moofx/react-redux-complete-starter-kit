@@ -56,6 +56,10 @@ export default {
                 loader: 'file'
             },
             {
+                test: /\.(jpg|jpeg|png)$/,
+                loader: 'file'
+            },
+            {
                 test: /\.(woff|woff2)$/,
                 loader: 'url?prefix=font/&limit=5000'
             },
